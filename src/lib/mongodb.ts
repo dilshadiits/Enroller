@@ -45,8 +45,9 @@ async function connectDB() {
     if (!cached.promise) {
         const opts = {
             bufferCommands: false,
-            serverSelectionTimeoutMS: 5000, // Fail after 5 seconds if cannot connect
-            socketTimeoutMS: 45000, // Close sockets after 45 seconds of inactivity
+            serverSelectionTimeoutMS: 5000,
+            socketTimeoutMS: 45000,
+            maxPoolSize: 1, // Optimize for serverless/Vercel to prevent connection exhaustion
         };
 
         cached.promise = mongoose.connect(uri, opts).then((mongoose) => {
