@@ -12,7 +12,7 @@ export async function POST(request: NextRequest) {
         }
 
         // Ensure database is initialized
-        await ensureInitialized();
+        // await ensureInitialized(); // REMOVED: Redundant
 
         const { email, password } = await request.json();
 
@@ -61,7 +61,7 @@ export async function POST(request: NextRequest) {
         });
 
         return NextResponse.json(
-            { error: 'Login failed. Please check server logs for details.' },
+            { error: error instanceof Error ? error.message : 'Login failed with unknown error' },
             { status: 500 }
         );
     }
