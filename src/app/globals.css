@@ -2366,6 +2366,18 @@ input:focus+label {
   *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Responsive Dashboard Grid (2:1 layout) */
+.grid-dashboard {
+  display: grid;
+  gap: var(--spacing-xl);
+  grid-template-columns: 2fr 1fr;
+}
+
+@media (max-width: 1024px) {
+  .grid-dashboard {
+    grid-template-columns: 1fr;
   }
 }

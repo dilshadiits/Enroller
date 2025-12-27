@@ -117,7 +117,7 @@ export default function AdminDashboard() {
                 </div>
             )}
 
-            <div className="grid" style={{ gridTemplateColumns: '2fr 1fr', gap: 'var(--spacing-xl)' }}>
+            <div className="grid-dashboard">
                 {/* Lead Pipeline */}
                 <div className="card">
                     <div className="card-header">
