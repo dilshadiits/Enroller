@@ -25,10 +25,18 @@ export default function AdminPayoutsPage() {
 
     const fetchPayouts = async () => {
         try {
+            console.log('Fetching payouts...');
             const res = await fetch('/api/payouts');
+            console.log('Fetch payouts response status:', res.status);
+
             if (res.ok) {
                 const data = await res.json();
+                console.log('Fetch payouts data:', data);
                 setPayouts(data.payouts);
+            } else {
+                const errData = await res.json().catch(() => ({}));
+                console.error('Fetch payouts failed:', errData);
+                // Optional: alert('Failed to fetch payouts');
             }
         } catch (err) {
             console.error('Failed to fetch payouts:', err);

@@ -135,7 +135,19 @@ __turbopack_context__.s([
 ]);
 var __TURBOPACK__imported__module__$5b$externals$5d2f$mongoose__$5b$external$5d$__$28$mongoose$2c$__cjs$2c$__$5b$project$5d2f$node_modules$2f$mongoose$29$__ = __turbopack_context__.i("[externals]/mongoose [external] (mongoose, cjs, [project]/node_modules/mongoose)");
 ;
-const MONGODB_URI = process.env.MONGODB_URI || 'mongodb+srv://dilshadbvoc_db_user:enroller123@enroller.edixhqh.mongodb.net/?appName=Enroller';
+const MONGODB_URI = process.env.MONGODB_URI;
+if (!MONGODB_URI) {
+    console.warn('⚠️  MONGODB_URI is not defined in environment variables. Using fallback/hardcoded connection string if available, or failing.');
+// Fallback logic could go here if you really want to keep it, but it's safer to rely on Env Vars.
+// modifying the logic to STRICTLY require env var for better debugging
+// But to respect the existing code's fallback (which I saw in the file view), I will re-implement the fallback logic but with a log.
+}
+const uri = MONGODB_URI || 'mongodb+srv://dilshadbvoc_db_user:enroller123@enroller.edixhqh.mongodb.net/?appName=Enroller';
+if (uri === 'mongodb+srv://dilshadbvoc_db_user:enroller123@enroller.edixhqh.mongodb.net/?appName=Enroller') {
+    console.warn('⚠️  Using HARDCODED connection string. This is not recommended for production.');
+} else {
+    console.log('Using configured MONGODB_URI from environment.');
+}
 if ("TURBOPACK compile-time falsy", 0) //TURBOPACK unreachable
 ;
 let cached = global.mongoose;
@@ -151,10 +163,17 @@ async function connectDB() {
     }
     if (!cached.promise) {
         const opts = {
-            bufferCommands: false
+            bufferCommands: false,
+            serverSelectionTimeoutMS: 5000,
+            socketTimeoutMS: 45000,
+            maxPoolSize: 1
         };
-        cached.promise = __TURBOPACK__imported__module__$5b$externals$5d2f$mongoose__$5b$external$5d$__$28$mongoose$2c$__cjs$2c$__$5b$project$5d2f$node_modules$2f$mongoose$29$__["default"].connect(MONGODB_URI, opts).then((mongoose)=>{
+        cached.promise = __TURBOPACK__imported__module__$5b$externals$5d2f$mongoose__$5b$external$5d$__$28$mongoose$2c$__cjs$2c$__$5b$project$5d2f$node_modules$2f$mongoose$29$__["default"].connect(uri, opts).then((mongoose)=>{
+            console.log('✅ MongoDB Connected Successfully');
             return mongoose;
+        }).catch((error)=>{
+            console.error('❌ MongoDB Connection Error:', error);
+            throw error;
         });
     }
     try {

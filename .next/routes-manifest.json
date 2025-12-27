@@ -178,6 +178,12 @@
       "namedRegex": "^/api/courses(?:/)?$"
     },
     {
+      "page": "/api/debug-payouts",
+      "regex": "^/api/debug\\-payouts(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/debug\\-payouts(?:/)?$"
+    },
+    {
       "page": "/api/leads",
       "regex": "^/api/leads(?:/)?$",
       "routeKeys": {},

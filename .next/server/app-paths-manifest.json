@@ -18,6 +18,7 @@
   "/api/commissions/route": "app/api/commissions/route.js",
   "/api/courses/[id]/route": "app/api/courses/[id]/route.js",
   "/api/courses/route": "app/api/courses/route.js",
+  "/api/debug-payouts/route": "app/api/debug-payouts/route.js",
   "/api/leads/[id]/route": "app/api/leads/[id]/route.js",
   "/api/leads/public/route": "app/api/leads/public/route.js",
   "/api/leads/route": "app/api/leads/route.js",

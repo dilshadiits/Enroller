@@ -18,6 +18,7 @@
   "/api/commissions/route": "/api/commissions",
   "/api/courses/[id]/route": "/api/courses/[id]",
   "/api/courses/route": "/api/courses",
+  "/api/debug-payouts/route": "/api/debug-payouts",
   "/api/leads/[id]/route": "/api/leads/[id]",
   "/api/leads/public/route": "/api/leads/public",
   "/api/leads/route": "/api/leads",

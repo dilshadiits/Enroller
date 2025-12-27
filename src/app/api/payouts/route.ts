@@ -22,10 +22,13 @@ export async function GET(request: NextRequest) {
         let query: any = {};
 
         if (session.role === 'ADMIN') {
+            console.log('API Payouts: User is ADMIN. Fetching all.');
             // Admin sees all
         } else if (session.role === 'AGENT') {
+            console.log(`API Payouts: User is AGENT (${session.id}). Fetching own.`);
             query.agentId = session.id;
         } else {
+            console.log(`API Payouts: User role ${session.role} denied.`);
             return NextResponse.json(
                 { error: 'Only agents and admins can view payouts' },
                 { status: 403 }
@@ -33,6 +36,7 @@ export async function GET(request: NextRequest) {
         }
 
         const payouts = await Payout.find(query).sort({ requestedAt: -1 });
+        console.log(`API Payouts: Found ${payouts.length} payouts.`);
 
         // Populate agent info
         const agentIds = [...new Set(payouts.map(p => p.agentId))];

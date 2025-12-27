@@ -1,1 +1,17 @@
-{}
+{
+  "/_not-found/page": "app/_not-found/page.js",
+  "/admin/page": "app/admin/page.js",
+  "/admin/payouts/page": "app/admin/payouts/page.js",
+  "/admin/users/page": "app/admin/users/page.js",
+  "/agent/commissions/page": "app/agent/commissions/page.js",
+  "/agent/page": "app/agent/page.js",
+  "/api/auth/login/route": "app/api/auth/login/route.js",
+  "/api/auth/logout/route": "app/api/auth/logout/route.js",
+  "/api/auth/me/route": "app/api/auth/me/route.js",
+  "/api/commissions/route": "app/api/commissions/route.js",
+  "/api/leads/route": "app/api/leads/route.js",
+  "/api/payouts/route": "app/api/payouts/route.js",
+  "/api/users/route": "app/api/users/route.js",
+  "/login/page": "app/login/page.js",
+  "/page": "app/page.js"
+}
