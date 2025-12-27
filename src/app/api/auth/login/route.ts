@@ -5,6 +5,12 @@ import { createToken, setAuthCookie } from '@/lib/auth';
 
 export async function POST(request: NextRequest) {
     try {
+        // Check for environment variables
+        if (!process.env.MONGODB_URI) {
+            console.error('CRITICAL: MONGODB_URI is not defined');
+            throw new Error('MONGODB_URI is missing');
+        }
+
         // Ensure database is initialized
         await ensureInitialized();
 
@@ -48,9 +54,14 @@ export async function POST(request: NextRequest) {
             },
         });
     } catch (error) {
-        console.error('Login error:', error);
+        console.error('Login error details:', {
+            message: error instanceof Error ? error.message : 'Unknown error',
+            stack: error instanceof Error ? error.stack : undefined,
+            error
+        });
+
         return NextResponse.json(
-            { error: 'Login failed' },
+            { error: 'Login failed. Please check server logs for details.' },
             { status: 500 }
         );
     }
