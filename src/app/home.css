@@ -1,0 +1,196 @@
+/* Home page styles - Mobile Responsive */
+
+.home-container {
+    min-height: 100vh;
+    display: flex;
+    background: linear-gradient(135deg, #fef9c3 0%, #fde047 100%);
+}
+
+.home-branding {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem;
+    background: linear-gradient(135deg, #ca8a04 0%, #eab308 50%, #fbbf24 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.home-circle {
+    position: absolute;
+    border-radius: 50%;
+}
+
+.home-circle-1 {
+    top: -10%;
+    left: -10%;
+    width: 50%;
+    height: 50%;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.home-circle-2 {
+    bottom: -20%;
+    right: -10%;
+    width: 60%;
+    height: 60%;
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.home-branding-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    color: white;
+}
+
+.home-icon {
+    font-size: 4rem;
+    margin-bottom: 1.5rem;
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+}
+
+.home-title {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    color: white;
+}
+
+.home-tagline {
+    font-size: 1.25rem;
+    opacity: 0.95;
+    max-width: 400px;
+    line-height: 1.6;
+    color: white;
+}
+
+.home-login-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem;
+    background: #fefce8;
+}
+
+.home-login-container {
+    width: 100%;
+    max-width: 400px;
+}
+
+.home-login-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.home-login-title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #1c1917;
+    margin-bottom: 0.5rem;
+}
+
+.home-login-subtitle {
+    color: #78716c;
+}
+
+.home-footer {
+    text-align: center;
+    margin-top: 2rem;
+    font-size: 0.875rem;
+    color: #a8a29e;
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+    .home-container {
+        flex-direction: column;
+    }
+
+    .home-branding {
+        padding: 2rem;
+        min-height: 40vh;
+    }
+
+    .home-login-section {
+        padding: 2rem;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .home-container {
+        flex-direction: column;
+    }
+
+    .home-branding {
+        padding: 2rem 1.5rem;
+        min-height: auto;
+    }
+
+    .home-icon {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+    }
+
+    .home-title {
+        font-size: 2.25rem;
+    }
+
+    .home-tagline {
+        font-size: 1rem;
+        max-width: 100%;
+    }
+
+    .home-login-section {
+        padding: 2rem 1.5rem;
+    }
+
+    .home-login-header {
+        margin-bottom: 1.5rem;
+    }
+
+    .home-login-title {
+        font-size: 1.5rem;
+    }
+
+    .home-footer {
+        margin-top: 1.5rem;
+    }
+}
+
+/* Small mobile */
+@media (max-width: 480px) {
+    .home-branding {
+        padding: 1.5rem 1rem;
+    }
+
+    .home-icon {
+        font-size: 2.5rem;
+    }
+
+    .home-title {
+        font-size: 1.85rem;
+    }
+
+    .home-tagline {
+        font-size: 0.9rem;
+    }
+
+    .home-login-section {
+        padding: 1.5rem 1rem;
+    }
+
+    .home-login-container {
+        max-width: 100%;
+    }
+
+    .home-login-title {
+        font-size: 1.35rem;
+    }
+}
