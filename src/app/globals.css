@@ -92,6 +92,8 @@ body {
   line-height: 1.6;
   min-height: 100vh;
   overflow-x: hidden;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
 }
 
 /* Animated mesh gradient background */
@@ -184,6 +186,8 @@ a {
   color: var(--primary-light);
   text-decoration: none;
   transition: all var(--transition-fast);
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
 }
 
 a:hover {
@@ -205,6 +209,8 @@ textarea {
   font-size: 1rem;
   font-family: inherit;
   transition: all var(--transition-normal);
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
 }
 
 input:focus,
@@ -248,6 +254,8 @@ label {
   text-decoration: none;
   position: relative;
   overflow: hidden;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .btn::before {
