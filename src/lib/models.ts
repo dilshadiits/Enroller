@@ -84,6 +84,7 @@ const PayoutSchema = new Schema({
         enum: ['REQUESTED', 'APPROVED', 'PAID', 'REJECTED'],
         default: 'REQUESTED'
     },
+    requestedAt: { type: Date, default: Date.now },
     approvedAt: { type: Date },
     paidAt: { type: Date },
     notes: { type: String },

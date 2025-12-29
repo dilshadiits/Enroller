@@ -168,7 +168,9 @@ export default function AdminPayoutsPage() {
                                             </span>
                                         </td>
                                         <td style={{ color: 'var(--text-muted)' }}>
-                                            {new Date(payout.requestedAt).toLocaleDateString()}
+                                            {payout.requestedAt && !isNaN(new Date(payout.requestedAt).getTime())
+                                                ? new Date(payout.requestedAt).toLocaleDateString()
+                                                : 'N/A'}
                                         </td>
                                         <td>
                                             <div className="flex gap-sm">
