@@ -1973,10 +1973,12 @@ input:focus+label {
   z-index: 199;
   opacity: 0;
   transition: opacity var(--transition-normal);
+  pointer-events: none;
 }
 
 .sidebar-overlay.active {
   opacity: 1;
+  pointer-events: auto;
 }
 
 /* Mobile navigation styles */
