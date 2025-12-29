@@ -3,8 +3,17 @@ import connectDB from './mongodb';
 import { User, Center, Course, Lead, Commission, Payout } from './models';
 import bcrypt from 'bcryptjs';
 
+// Cache flag to prevent repeated initialization
+let isInitialized = false;
+
 // Function to ensure database is initialized with seed data
 export async function ensureInitialized() {
+    // Skip if already initialized in this server instance
+    if (isInitialized) {
+        await connectDB(); // Still ensure connection
+        return;
+    }
+
     await connectDB();
 
     // Check if admin exists
@@ -83,6 +92,9 @@ export async function ensureInitialized() {
 
         console.log('Database seeded successfully');
     }
+
+    // Mark as initialized to skip checks on subsequent requests
+    isInitialized = true;
 }
 
 // Helpers - these are now Async wrappers or direct exports of models if needed
