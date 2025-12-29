@@ -21,6 +21,7 @@
 .home-circle {
     position: absolute;
     border-radius: 50%;
+    pointer-events: none;
 }
 
 .home-circle-1 {
